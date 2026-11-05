@@ -27,6 +27,17 @@ document.querySelector('#check-form').addEventListener('submit', event => {
   event.preventDefault(); const input = document.querySelector('#check-title'); const title = input.value.trim();
   if (!title) { input.setCustomValidity('Enter a check name.'); input.reportValidity(); return; }
   checks.unshift({id: Date.now(), title, status: 'open'}); input.value = ''; filter.value = 'all'; render();
+  message.textContent = `Added ${title}. ${checks.length} checks shown.`;
 });
 document.querySelector('#check-title').addEventListener('input', event => event.target.setCustomValidity(''));
 filter.addEventListener('change', render); retry.addEventListener('click', load); load();
+
+// Pointer feedback is deliberately separate from keyboard activation.
+for (const button of document.querySelectorAll('button')) {
+  button.addEventListener('pointerdown', event => {
+    if (event.button === 0) button.classList.add('pointer-pressed');
+  });
+  for (const event of ['pointerup', 'pointercancel', 'pointerleave', 'blur']) {
+    button.addEventListener(event, () => button.classList.remove('pointer-pressed'));
+  }
+}
