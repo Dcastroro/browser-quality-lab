@@ -4,7 +4,7 @@ import { readFile } from 'node:fs/promises';
 const files = new Map([['/', ['index.html','text/html; charset=utf-8']], ['/app.js',['app.js','text/javascript; charset=utf-8']], ['/style.css',['style.css','text/css; charset=utf-8']]]);
 http.createServer(async (req, res) => {
   const path = new URL(req.url, 'http://localhost').pathname;
-  if (path === '/api/checks' && req.method === 'GET') {
+  if (path === '/api/checks.json' && req.method === 'GET') {
     res.writeHead(200, { 'content-type': 'application/json', 'cache-control': 'no-store' });
     return res.end(JSON.stringify([{ id: 1, title: 'Review checkout flow', status: 'open' }, { id: 2, title: 'Verify mobile navigation', status: 'done' }]));
   }
