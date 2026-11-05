@@ -1,0 +1,8 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Quality Lab</title><link rel="stylesheet" href="/style.css"><script type="module" src="/app.js"></script></head><body>
+<header><div class="brand"><span class="mark">Q</span><span>QUALITY LAB <small>Test workspace</small></span></div><span class="tag">DEMO ENVIRONMENT</span></header>
+<main><div class="eyebrow">BROWSER QUALITY / 01</div><h1>Good software is<br><em>tested in the open.</em></h1><p class="intro">A small workspace for exploring reliable browser tests, resilient states and everyday quality workflows.</p>
+<section aria-labelledby="checks-title" class="panel"><div class="panelhead"><div><div class="eyebrow">YOUR WORKSPACE</div><h2 id="checks-title">Quality checks</h2><p>Track the details before they reach production.</p></div><span class="status">LIVE DEMO</span></div>
+<form id="check-form"><label for="check-title">Add a check</label><div class="inputrow"><input id="check-title" name="title" maxlength="100" placeholder="e.g. Test empty states" required><button type="submit">Add check <span aria-hidden="true">↗</span></button></div></form>
+<div class="toolbar"><h3>All checks</h3><label for="filter">Filter</label><select id="filter"><option value="all">All checks</option><option value="open">Open</option><option value="done">Completed</option></select></div>
+<p id="message" role="status" aria-live="polite"></p><ul id="checks" aria-label="Quality checks"></ul><button id="retry" type="button" hidden>Try again</button></section>
+<footer>Designed for real testing practice <span>•</span> Local demo data</footer></main></body></html>
