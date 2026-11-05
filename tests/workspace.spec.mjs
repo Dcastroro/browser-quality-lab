@@ -19,7 +19,7 @@ test('adds text safely using keyboard navigation', async ({ page }) => {
 
 test('shows recovery action when the API fails, then retries', async ({ page }) => {
   let calls = 0;
-  await page.route('**/api/checks', async route => {
+  await page.route('**/api/checks.json', async route => {
     calls++;
     if (calls === 1) await route.fulfill({ status: 503, body: 'unavailable' });
     else await route.fulfill({ json: [{id: 7, title: 'Recovered check', status: 'open'}] });
@@ -32,7 +32,7 @@ test('shows recovery action when the API fails, then retries', async ({ page }) 
 });
 
 test('provides an explicit empty state', async ({ page }) => {
-  await page.route('**/api/checks', route => route.fulfill({json: []}));
+  await page.route('**/api/checks.json', route => route.fulfill({json: []}));
   await page.goto('/');
   await expect(page.getByRole('status')).toHaveText('No checks match this filter.');
 });

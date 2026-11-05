@@ -18,7 +18,7 @@ function render() {
 async function load() {
   retry.hidden = true; message.textContent = 'Loading checks…'; list.replaceChildren();
   try {
-    const response = await fetch('/api/checks'); if (!response.ok) throw new Error('Request failed');
+    const response = await fetch('./api/checks.json'); if (!response.ok) throw new Error('Request failed');
     const data = await response.json(); if (!Array.isArray(data)) throw new Error('Invalid response');
     checks = data; render();
   } catch { message.textContent = 'Could not load checks. Please try again.'; retry.hidden = false; }

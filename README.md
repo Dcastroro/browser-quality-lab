@@ -2,6 +2,8 @@
 
 A small, dependency-light demo application and a Playwright suite showing practical browser-testing techniques. The application uses local demo data; new checks are kept only in memory until the next reload.
 
+[Try the live demo](https://dcastroro.github.io/browser-quality-lab/). It uses static sample data and does not save changes after a reload.
+
 ![Quality Lab example workspace](docs/workspace.png)
 
 ## Run locally
